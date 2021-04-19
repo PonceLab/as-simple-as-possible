@@ -1,0 +1,9 @@
+All statistical tests of significance functions were native to Matlab and included signrank.m, ranksum.m, kruskalwallis.m, randperm.m, datasample.m and bootstrp.m. 
+
+Section 1. Selectivity.
+
+Tutorial adapted for obtaining labels per image
+googleapis/python-vision repo:
+https://github.com/googleapis/python-vision/blob/8374f79ca1d7048cbb1638d759557ec9a7f92c6a/samples/snippets/quickstart/quickstart.py
+
+Section 2. 
