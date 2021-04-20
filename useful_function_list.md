@@ -19,7 +19,7 @@ Section 3. “Prototypes in anterior cortex resemble specific object parts. ”
 
 - To compute the time to convergence (“V1/V2 sites required fewer cycles to create their prototypes compared to IT sites…”), we used movmean.m to smooth each site’s mean response per generation curve. 
 
-- To compute image specificity and thus corroborate our interpretation of the convergence rates (“We interpreted these differences in convergence rates as the result of an increase in feature specificity...”), we used the function [gimbutas@gmail.com, XXX]
+- To compute image specificity and thus corroborate our interpretation of the convergence rates (“We interpreted these differences in convergence rates as the result of an increase in feature specificity...”), we used the function (@jojker).
 
 - The semantic-ensemble analyses all relied on Matlab’s alexnet.m function.
 
