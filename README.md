@@ -9,8 +9,6 @@ XXX License here
 
 ## Table of contents
 This repo is organized into four folders corresponding the class of analysis plus two folders for data and utility functions needed for all folders. In each folder is one or more livescripts which take readers through toy examples and show them how to adapt them to their own needs. Each live script is also converted to markdown for display as the readme for that folder. 
-https://blogs.mathworks.com/pick/2021/01/08/convert-your-live-scripts-to-markdown-file/
-https://www.markdownguide.org/cheat-sheet/
 
 - [Image Statistic Analysis](https://github.com/PonceLab/as-simple-as-possible/tree/main/Image_Statistic_Analysis): Orientation dominance index, Entropy, Energy, Stationarity, Luminance, Tamura's textures
 - [Semantic Ensemble Analysis](https://github.com/PonceLab/as-simple-as-possible/tree/main/Semantic_Ensemble_Analysis): How to create an xxx ensemble from a toy data set (or maybe the actual data set used in the paper?)
@@ -35,3 +33,8 @@ Fill out the Google cloud vision part of the image content analysis folder (+ so
 After the work date:
 James will do the merges, any cleaning that is needed and make sure everything imports like it should. He will put the dependents in a requirements.txt file and/or a script that can be run, or quality advice given to setting up MATLAB to work with python. 
 
+### useful links
+
+https://blogs.mathworks.com/pick/2021/01/08/convert-your-live-scripts-to-markdown-file/
+
+https://www.markdownguide.org/cheat-sheet/
