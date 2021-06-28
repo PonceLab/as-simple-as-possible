@@ -14,8 +14,8 @@ https://www.markdownguide.org/cheat-sheet/
 
 - Image Statistic Analysis: Orientation dominance index, Entropy, Energy, Stationarity, Luminance, Tamura's textures
 - Semantic Ensemble Analysis: How to create an xxx ensemble from a toy data set (or maybe the actual data set used in the paper?)
-- Complexity code: Analysing the number of image parts after clustering and getting the complexity ratio
-- Image labeling: getting fuzzy-labels for images with a resnet trained for the COCO-STUFF data set and then gathering statistics on word frequency in labels, including Google Cloud Vision  labels
+- Complexity Analysis: Analysing the number of image parts after clustering and getting the complexity ratio
+- Image Content Analysis: getting fuzzy-labels for images with a resnet trained for the COCO-STUFF data set and then gathering statistics on word frequency in labels, including Google Cloud Vision  labels
 
 
 ### Assignments for tasks within the PonceLab group
@@ -27,10 +27,10 @@ Carlos:
 Fill out the complexity code folder, and the ensembles folder
 
 James:
-Fill out the Image Statistic Analysis folder and the COCO-stuff part of the image labeling folder
+Fill out the Image Statistic Analysis folder and the COCO-stuff part of the image content analysis folder
 
 Binxu:
-Fill out the Google cloud vision part of the image labeling folder (+ something about troubleshooting Anaconda and Matlab?)
+Fill out the Google cloud vision part of the image content analysis folder (+ something about troubleshooting Anaconda and Matlab?)
 
 After the work date:
 James will do the merges, any cleaning that is needed and make sure everything imports like it should. He will put the dependents in a requirements.txt file and/or a script that can be run, or quality advice given to setting up MATLAB to work with python. 
