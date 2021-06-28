@@ -21,7 +21,7 @@ https://www.markdownguide.org/cheat-sheet/
 ### Assignments for tasks within the PonceLab group
 Work date: 07/06/2021
 
-Guidelines: Everyone make a fork or just download the structure work on your computer then James will do the merge. Be mindful of what should probably go in the "utils" and "data" folder and do that. Keep the analysis folders limited to the livescript + any scripts or functions that absolutely could not fit in the livescript, and that no one else is likely to use in their folders. All dependencies should be in either the analysis folder or the utils function unless they are owned by someone else (e.g. a FEX file, or the resnet repo etc.). For dependencies that are not able to be included, please directly list them at the top of the livescript. 
+Guidelines: Everyone make a fork or just download the structure work on your computer then James will do the merge. Be mindful of what should probably go in the "utils" and "data" folder and do that. Keep the analysis folders limited to the livescript + any scripts or functions that absolutely could not fit in the livescript, and that no one else is likely to use in their folders. Thus, ranksum2 would go in utils, not in a livescript. All dependencies should be in either the analysis folder or the utils function unless they are owned by someone else (e.g. a FEX file, or the resnet repo etc.). For dependencies that are not able to be included, please directly list them at the top of the livescript. 
 
 Carlos: 
 Fill out the complexity code folder, and the ensembles folder
