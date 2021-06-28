@@ -13,7 +13,7 @@ This repo is organized into four folders corresponding the class of analysis plu
 - [Image Statistic Analysis](https://github.com/PonceLab/as-simple-as-possible/tree/main/Image_Statistic_Analysis): Orientation dominance index, Entropy, Energy, Stationarity, Luminance, Tamura's textures
 - [Semantic Ensemble Analysis](https://github.com/PonceLab/as-simple-as-possible/tree/main/Semantic_Ensemble_Analysis): How to create an xxx ensemble from a toy data set (or maybe the actual data set used in the paper?)
 - [Complexity Analysis](https://github.com/PonceLab/as-simple-as-possible/tree/main/Complexity_Analysis): Analysing the number of image parts after clustering and getting the complexity ratio
-- [Image Content Analysis](https://github.com/PonceLab/as-simple-as-possible/tree/main/Image_Content_Analysis): getting fuzzy-labels for images with a resnet trained for the COCO-STUFF data set and then gathering statistics on word frequency in labels, including Google Cloud Vision  labels
+- [Image Content Analysis](https://github.com/PonceLab/as-simple-as-possible/tree/main/Image_Content_Analysis): Getting fuzzy-labels for images with a resnet trained for the COCO-STUFF data set and then gathering statistics on word frequency in labels, including Google Cloud Vision  labels
 
 
 ### Assignments for tasks within the PonceLab group
