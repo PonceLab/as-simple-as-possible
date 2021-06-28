@@ -1,5 +1,5 @@
 # As simple as possible
-This is a repo expositing methods used for the publication: _As simple as possible, but not simpler: features of the neural code for object recognition_ authored by  Rose O.¶, Johnson J.K. ¶, Wang B. and Ponce C.R.* and published in _To Be Determined_  Month 2021
+This is a repo expositing methods used for the publication: _As simple as possible, but not simpler: features of the neural code for object recognition_ authored by  Bockler O.R., Johnson J.K., Wang B. and Ponce C.R.* and published in _To Be Determined_  Month 2021
 
 We demonstrate the methods here in a manner that researchers familiar with MATLAB and Python can easily read, understand, and adapt to their purposes. If these methods are used, in whole, part, or after adaptation please cite:
 xxx
