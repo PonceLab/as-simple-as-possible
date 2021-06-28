@@ -30,7 +30,7 @@ James:
 Fill out the Image Statistic Analysis folder and the COCO-stuff part of the image labeling folder
 
 Binxu:
-Fill out the Google cloud vision part of the image labeling folder
+Fill out the Google cloud vision part of the image labeling folder (+ something about troubleshooting Anaconda and Matlab?)
 
 After the work date:
 James will do the merges, any cleaning that is needed and make sure everything imports like it should. He will put the dependents in a requirements.txt file and/or a script that can be run, or quality advice given to setting up MATLAB to work with python. 
