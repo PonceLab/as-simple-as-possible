@@ -1,0 +1,39 @@
+bw   = 0.2;                % Mean Shift Bandwidth
+myPaths = Project_CMA_myPaths ; 
+ 
+for iM = 2%:length(Monkeys)
+    M = Monkeys{iM} ;
+    all_cuts = [] ;
+    for iStats = 1:length(M.Stats)
+        disp(iStats)
+        
+        % load ghost evolutions
+        path_to_save = myPaths.ghost_evolutions;
+        iRand = 1 ;
+        ghost_evolution_file =  fullfile( path_to_save , ...
+            sprintf('%s-exp-%d-chan-%02d-%03d.mat',...
+            M.Stats{iStats}.monkey,iStats,M.Stats{iStats}.prefChan,iRand)  );
+        foo = load(ghost_evolution_file) ; 
+        
+
+        imgs = {M.Stats{iStats}.picsPerGen_meanGene(:,:,:,end-1) foo.pics(:,:,:,end) M.Stats{iStats}.shuffled_pics(:,:,:,end) } ; 
+        
+        nms2_all = nan(1,length(imgs));
+        
+        for i = 1:length( imgs) 
+            
+            I = rescale( imgs {i} ) ;
+            I = imresize(I,[100 nan]);
+            if all(isnan(I(:))), continue, end
+            [Ims2, Nms2] = Ms2(I,bw);                   % Mean Shift (color + spatial)
+            nms2_all(i) = Nms2 ; 
+            
+        end % of imgs
+
+        all_cuts = [ all_cuts ; nms2_all ] ;
+    end
+
+    [counts,bins] = hist(all_cuts) ; 
+    figure, plot(bins,counts(:,1),'r',bins,counts(:,2),'r--',bins,counts(:,3),'k--') 
+    signrank(all_cuts(:,1),all_cuts(:,2))
+end % of iM
