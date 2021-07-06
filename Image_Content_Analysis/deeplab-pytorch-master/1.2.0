@@ -1,0 +1,10 @@
+Collecting pytorch
+  Downloading pytorch-1.0.2.tar.gz (689 bytes)
+Building wheels for collected packages: pytorch
+  Building wheel for pytorch (setup.py): started
+  Building wheel for pytorch (setup.py): finished with status 'error'
+  Running setup.py clean for pytorch
+Failed to build pytorch
+Installing collected packages: pytorch
+    Running setup.py install for pytorch: started
+    Running setup.py install for pytorch: finished with status 'error'

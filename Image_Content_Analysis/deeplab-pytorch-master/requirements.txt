@@ -1,0 +1,15 @@
+click
+cudatoolkit==10.2
+matplotlib
+torch>=1.2.0
+torchvision
+pyyaml
+scipy
+tqdm
+addict
+black
+joblib
+omegaconf
+opencv-python
+tensorflow
+torchnet
