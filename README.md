@@ -4,7 +4,7 @@ This is a repo expositing methods used for the publication: _As simple as possib
 We demonstrate the methods here in a manner that researchers familiar with MATLAB and Python can easily read, understand, and adapt to their purposes. If these methods are used, in whole, part, or after adaptation please cite:
 xxx
 
-XXX License here
+MIT license
 
 
 ## Table of contents
