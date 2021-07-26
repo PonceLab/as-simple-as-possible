@@ -1,3 +1,5 @@
+[Link to the Google Cloud Vision example](https://github.com/PonceLab/as-simple-as-possible/blob/main/Image_Content_Analysis/labeling_with_Google_Cloud_Vision.md)
+
 # License
 
 
@@ -412,7 +414,7 @@ disp(['Chi-square statistics: ',newline,strjoin(statisticsReport,''),newline])
 
 The bar chart shows the relative enrichment of one label in the daisy category over the macaque category if values are positive. The reverse is true for negative values. We have also printed the exact chi-square values that correspond to the bon-ferroni significance indicated with * in the plot labels.
 
-
+[Link to the Google Cloud Vision example](https://github.com/PonceLab/as-simple-as-possible/blob/main/Image_Content_Analysis/labeling_with_Google_Cloud_Vision.md)
   
 # Functions
 
