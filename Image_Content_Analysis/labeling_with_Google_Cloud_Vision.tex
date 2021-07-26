@@ -1,0 +1,416 @@
+% This LaTeX was auto-generated from MATLAB code.
+% To make changes, update the MATLAB code and export to LaTeX again.
+
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{epstopdf}
+\usepackage[table]{xcolor}
+\usepackage{matlab}
+
+\sloppy
+\epstopdfsetup{outdir=./}
+\graphicspath{ {./labeling_with_Google_Cloud_Vision_images/} }
+
+\matlabhastoc
+
+\begin{document}
+
+\label{H_CDFC31FF}
+\matlabheading{License}
+
+\begin{par}
+\begin{flushleft}
+Please cite the following publication when using or adapting this software or substantial portion thereof for work resulting a publication:
+\end{flushleft}
+\end{par}
+
+\begin{par}
+\begin{flushleft}
+Rose O., Johnson J.K., Wang B. and Ponce C.R.; As simple as possible, but not simpler: features of the neural code for object recognition; JOURNAL TBA
+\end{flushleft}
+\end{par}
+
+\begin{par}
+\begin{flushleft}
+(also see the CITATION file)
+\end{flushleft}
+\end{par}
+
+
+\vspace{1em}
+\begin{par}
+\begin{flushleft}
+MIT License
+\end{flushleft}
+\end{par}
+
+\begin{par}
+\begin{flushleft}
+Copyright (c) 2021 PonceLab
+\end{flushleft}
+\end{par}
+
+\begin{par}
+\begin{flushleft}
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+\end{flushleft}
+\end{par}
+
+\begin{par}
+\begin{flushleft}
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+\end{flushleft}
+\end{par}
+
+\begin{par}
+\begin{flushleft}
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+\end{flushleft}
+\end{par}
+
+
+\vspace{1em}
+\begin{matlabcode}
+% add the necessary files to the path (this should be all that is required)
+addpath(genpath(pwd))
+addpath(genpath(fullfile(fileparts(pwd),'data')))
+addpath(genpath(fullfile(fileparts(pwd),'utils')))
+\end{matlabcode}
+
+\label{T_CF998AC0}
+\vspace{1em}
+
+\label{T_2C8845C3}
+\matlabtitle{Using Google Cloud Service for Large Scale Image Labelling}
+
+\matlabtableofcontents{Table of Contents}
+\begin{par}
+\begin{flushleft}
+This livescript demonstrates accessing the Google Cloud Vision API and interpreting results. With cloud vision one can obtain very precise labels for images and discover whether an impartial judge has found them to contain certain types of content. It allows for qualitative characterization of image content en-masse. 
+\end{flushleft}
+\end{par}
+
+\begin{par}
+\begin{flushleft}
+Link to the \href{https://animadversio.github.io/tech_note/using-google-cloud-service-for-large-scale-image-labelling}{Tutorial in Binxu's Blog}. 
+\end{flushleft}
+\end{par}
+
+\label{H_ED70AF82}
+\matlabheading{Installing Google SDK}
+
+\begin{par}
+\begin{flushleft}
+\href{https://cloud.google.com/sdk/docs/quickstart-windows}{https://cloud.google.com/sdk/docs/quickstart-windows}
+\end{flushleft}
+\end{par}
+
+\begin{enumerate}
+\setlength{\itemsep}{-1ex}
+   \item{\begin{flushleft} New a Google Cloud Platform Project \end{flushleft}}
+   \item{\begin{flushleft} Download \href{https://dl.google.com/dl/cloudsdk/channels/rapid/GoogleCloudSDKInstaller.exe?hl=zh-cn}{Google Cloud SDK} \end{flushleft}}
+   \item{\begin{flushleft} After installation run \texttt{gcloud init} and log in to your account there! \end{flushleft}}
+   \item{\begin{flushleft} Select the GCP Project and the computing zone \end{flushleft}}
+   \item{\begin{flushleft} Finish the SDK configuration! \end{flushleft}}
+\end{enumerate}
+
+\label{H_09E6DCCD}
+\matlabheading{Installing Google API for different programs (like Vision we use)}
+
+\begin{par}
+\begin{flushleft}
+\href{https://cloud.google.com/python/}{https://cloud.google.com/python/}
+\end{flushleft}
+\end{par}
+
+\begin{par}
+\begin{flushleft}
+\href{https://googleapis.github.io/google-cloud-python/latest/vision/index.html}{https://googleapis.github.io/google-cloud-python/latest/vision/index.html}
+\end{flushleft}
+\end{par}
+
+\begin{verbatim}
+conda install -c conda-forge google-cloud-vision
+\end{verbatim}
+\begin{par}
+\begin{flushleft}
+Following packages may be necassary
+\end{flushleft}
+\end{par}
+
+\begin{verbatim}
+conda install -c conda-forge google-api-python-client
+conda install -c conda-forge google-auth
+conda install -c conda-forge google-auth-oauthlib
+\end{verbatim}
+\label{H_4CDE3813}
+\matlabheading{Set up Credentials for Google on PC}
+
+\begin{par}
+\begin{flushleft}
+\href{https://cloud.google.com/docs/authentication/getting-started}{https://cloud.google.com/docs/authentication/getting-started}
+\end{flushleft}
+\end{par}
+
+\begin{enumerate}
+\setlength{\itemsep}{-1ex}
+   \item{\begin{flushleft} Follow the steps to get an account and a credential. Download the JSON file it generates \end{flushleft}}
+   \item{\begin{flushleft} \texttt{export} or set the environment variables manually \end{flushleft}}
+   \item{\begin{flushleft} \texttt{set GOOGLE\_APPLICATION\_CREDENTIALS=[path\_to\_json]} \end{flushleft}}
+\end{enumerate}
+
+\begin{par}
+\begin{flushleft}
+\textit{Note}: If this is not set, then you can import the google packages like \texttt{from google.cloud import vision}. But you will see errors when creating a client!
+\end{flushleft}
+\end{par}
+
+\begin{par}
+\begin{flushleft}
+\href{https://cloud.google.com/docs/authentication/production#obtaining_and_providing_service_account_credentials_manually}{https://cloud.google.com/docs/authentication/production\#obtaining\_and\_providing\_service\_account\_credentials\_manually}
+\end{flushleft}
+\end{par}
+
+\begin{par}
+\begin{flushleft}
+\textit{Note}: If the environment variable is not working, manually set it in python.
+\end{flushleft}
+\end{par}
+
+\begin{verbatim}
+import os
+import io
+import json
+import pickle
+from os.path import join
+os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = r"D:\Github\Google_Vision_Image_Labelling\Image-patch-labelling-4e4cfd1664c2.json"
+from google.cloud import vision
+# Get the client! 
+client = vision.ImageAnnotatorClient()
+
+imgbasedir = r"N:\Stimuli\2019-Free-Viewing"
+subfolders = ['2019-08-19-Beto',]
+# if you want to try on a few examples use the following 2 lines
+# imgbasedir = r"data" 
+# subfolders = ["cloud_vision_demo",]
+
+for subfolder in subfolders:
+    imgdir = join(imgbasedir, subfolder)
+    imgnames = [fn for fn in os.listdir(imgdir) if \
+                any(fn.endswith('.'+sfx) for sfx in ["bmp","BMP","jpg","jpeg","png","JPG","JPEG","tiff","TIFF"]) and \
+                not os.path.isdir(join(imgdir, fn))]
+    print("%d Images in %s folder" % (len(imgnames), subfolder))
+
+#%%
+from time import time
+t0 = time()
+for subfolder in subfolders:
+    imgdir = join(imgbasedir, subfolder)
+    # filter image names by their suffix
+    imgnames = [fn for fn in os.listdir(imgdir) if \
+                any(fn.endswith('.'+sfx) for sfx in ["bmp","BMP","jpg","jpeg","png","JPG","JPEG","tiff","TIFF"]) and \
+                not os.path.isdir(join(imgdir, fn))]
+    print("%d Images in %s folder" % (len(imgnames), subfolder))
+
+    image_parse_dict = {}
+    for imgname in imgnames:
+        with io.open(join(imgdir, imgname), 'rb') as image_file:
+            content = image_file.read()
+        print(imgname)
+        image = vision.types.Image(content=content)
+
+        response = client.label_detection(image=image)
+        labels = response.label_annotations
+        print('Labels:')
+
+        label_data = []
+        for label in labels:
+            print("%s score: %.4f " % (label.description, label.score))
+            label_data.append((label.description, label.score))
+        print("\n")
+        image_parse_dict[imgname] = label_data
+
+    pickle.dump(image_parse_dict, open(join(imgdir, "label_dict.pkl"), "wb")) # Pkl file saved in binary format
+    json.dump(image_parse_dict, open(join(imgdir, 'label_result.json'), 'w')) # json file saved in readable format
+    print("%.1fs" % (time() - t0))
+    # JSON is easier for matlab to read!!
+    # do `jsonData = jsondecode(fileread('..\\label_result.json'));` in matlab
+
+print("%.1fs" % (time() - t0))
+#%% Loading code
+image_parse_dict = pickle.load(open(os.path.join(imgdir, "label_dict.pkl"), "rb"))
+data_dict = json.load(open('result.json', 'r'))
+\end{verbatim}
+
+\vspace{1em}
+\begin{par}
+\begin{flushleft}
+After you run the code, you will see output like the following 
+\end{flushleft}
+\end{par}
+
+\begin{verbatim}
+401 Images in 2019-08-19-Beto folder
+52.jpg
+Labels:
+Primate score: 0.9569 
+Jaw score: 0.8779 
+Rhesus macaque score: 0.8694 
+Organism score: 0.8639 
+Gesture score: 0.8448 
+Macaque score: 0.8229 
+Adaptation score: 0.7937 
+Terrestrial animal score: 0.7637 
+Snout score: 0.7554 
+Photo caption score: 0.7109 
+
+COCO_train2014_000000236279.jpg
+Labels:
+Food score: 0.9810 
+Tableware score: 0.9318 
+Ingredient score: 0.8862 
+Recipe score: 0.8681 
+Fines herbes score: 0.8628 
+Lemon score: 0.8482 
+Plate score: 0.8439 
+Leaf vegetable score: 0.8363 
+Sweet lemon score: 0.8346 
+Garnish score: 0.8045 
+
+.....
+\end{verbatim}
+\begin{par}
+\begin{flushleft}
+Here it takes 99 secs to process 405 images. 
+\end{flushleft}
+\end{par}
+
+
+\label{H_2DED2F2A}
+\matlabheading{Post Processing }
+
+\begin{par}
+\begin{flushleft}
+Next we read the json file in matlab and do some quick analysis, here we put the result json file in the \texttt{data\textbackslash{}cloud\_vision\_demo }folder. First convert the \texttt{json} file to a more matlab-friendly data structure. 
+\end{flushleft}
+\end{par}
+
+\begin{matlabcode}
+cd D:\Poncelab_Github\as-simple-as-possible
+imgdir = ".\data\cloud_vision_demo"
+\end{matlabcode}
+\begin{matlaboutput}
+imgdir = ".\data\cloud_vision_demo"
+\end{matlaboutput}
+\begin{matlabcode}
+[img2labelmap, imgnms, labels] = parsejson(".\data\cloud_vision_demo\label_result.json");
+\end{matlabcode}
+
+
+\begin{par}
+\begin{flushleft}
+Let's see some examples images and labels.
+\end{flushleft}
+\end{par}
+
+\begin{matlabcode}
+imshow(fullfile(imgdir,"n01494475_17826.JPEG"))
+\end{matlabcode}
+\begin{center}
+\includegraphics[width=\maxwidth{58.203712995484196em}]{figure_0.png}
+\end{center}
+\begin{matlabcode}
+struct2table(img2labelmap("n01494475_17826.JPEG"))
+\end{matlabcode}
+\begin{matlabtableoutput}
+{
+\begin{tabular} {|c|c|c|}\hline
+\mlcell{ } & \mlcell{labels} & \mlcell{scores} \\ \hline
+\mlcell{1} & \mlcell{"Panda"} & \mlcell{0.9668} \\ \hline
+\mlcell{2} & \mlcell{"Organism"} & \mlcell{0.8587} \\ \hline
+\mlcell{3} & \mlcell{"Carnivore"} & \mlcell{0.8030} \\ \hline
+\mlcell{4} & \mlcell{"Terrestrial animal"} & \mlcell{0.7656} \\ \hline
+\mlcell{5} & \mlcell{"Natural material"} & \mlcell{0.7621} \\ \hline
+\mlcell{6} & \mlcell{"Fur"} & \mlcell{0.6162} \\ \hline
+\mlcell{7} & \mlcell{"Balance"} & \mlcell{0.5421} \\ \hline
+\mlcell{8} & \mlcell{"Foot"} & \mlcell{0.5167} \\ \hline
+\mlcell{9} & \mlcell{"Zoo"} & \mlcell{0.5008} \\ 
+\hline
+\end{tabular}
+}
+\end{matlabtableoutput}
+\begin{matlabcode}
+
+imshow(fullfile(imgdir,"COCO_train2014_000000003008.jpg"))
+\end{matlabcode}
+\begin{center}
+\includegraphics[width=\maxwidth{58.203712995484196em}]{figure_1.png}
+\end{center}
+\begin{matlabcode}
+struct2table(img2labelmap("COCO_train2014_000000003008.jpg"))
+\end{matlabcode}
+\begin{matlabtableoutput}
+{
+\begin{tabular} {|c|c|c|}\hline
+\mlcell{ } & \mlcell{labels} & \mlcell{scores} \\ \hline
+\mlcell{1} & \mlcell{"Hand"} & \mlcell{0.9569} \\ \hline
+\mlcell{2} & \mlcell{"Eyelash"} & \mlcell{0.8941} \\ \hline
+\mlcell{3} & \mlcell{"Gesture"} & \mlcell{0.8526} \\ \hline
+\mlcell{4} & \mlcell{"Event"} & \mlcell{0.7118} \\ \hline
+\mlcell{5} & \mlcell{"Science"} & \mlcell{0.6979} \\ \hline
+\mlcell{6} & \mlcell{"Job"} & \mlcell{0.6358} \\ \hline
+\mlcell{7} & \mlcell{"Home appliance"} & \mlcell{0.6342} \\ \hline
+\mlcell{8} & \mlcell{"Television"} & \mlcell{0.6326} \\ \hline
+\mlcell{9} & \mlcell{"Room"} & \mlcell{0.6086} \\ \hline
+\mlcell{10} & \mlcell{"Sitting"} & \mlcell{0.5871} \\ 
+\hline
+\end{tabular}
+}
+\end{matlabtableoutput}
+
+
+\begin{par}
+\begin{flushleft}
+Here is the wordcloud of all labels for this batch of images. 
+\end{flushleft}
+\end{par}
+
+\begin{matlabcode}
+labels_all = cat(1,labels.labels);
+wordcloud(categorical(labels_all))
+\end{matlabcode}
+\begin{center}
+\includegraphics[width=\maxwidth{58.203712995484196em}]{figure_2.png}
+\end{center}
+
+
+\begin{matlabcode}
+function [img2labelmap, imgnms, labelarr] = parsejson(json_path)
+py.importlib.import_module("json");
+jsondata = py.json.load(py.open(json_path,"r"));
+imgnms = cellfun(@(X)X.string,cell(py.list(jsondata.keys())));
+results = cell(py.list(jsondata.values()));
+
+img2labelmap = containers.Map();
+labelarr = [];
+for i = 1:numel(results)
+S = struct();
+S.labels = cellfun(@(A)A{1}.string,cell(results{i}))';
+S.scores = cellfun(@(A)A{2},cell(results{i}))';
+img2labelmap(imgnms(i)) = S;
+labelarr = [labelarr;S];
+end
+% jsonData = jsondecode(fileread(json_path));
+return 
+end
+\end{matlabcode}
+
+\end{document}
