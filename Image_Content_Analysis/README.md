@@ -1,3 +1,4 @@
+[Link to Part 2: Google Cloud Vision](https://github.com/PonceLab/as-simple-as-possible/blob/main/Image_Content_Analysis/labeling_with_Google_Cloud_Vision.md)
 # License
 
 
@@ -53,6 +54,7 @@ addpath(genpath(fullfile(fileparts(pwd),'utils')))
 
 This livescript demonstrates a way to use image labeling to quantitatively score the semantic content of image sets relative to one another. This is in contrast to other image labeling methods which are more precise, but the cost of precision is that quantitative comparison is difficult. 
 
+[Link to Part 2: Google Cloud Vision](https://github.com/PonceLab/as-simple-as-possible/blob/main/Image_Content_Analysis/labeling_with_Google_Cloud_Vision.md)
 
 # Prerequisites, do not ignore!
 
@@ -558,7 +560,7 @@ plant outdoor stuff: Chi-square = NaN, p = NaN;     solid outdoor stuff: Chi-squ
 
 The bar chart shows the relative enrichment of one label in the daisy category over the macaque category if values are positive. The reverse is true for negative values. We have also printed the exact chi-square values that correspond to the bon-ferroni significance indicated with * in the plot labels.
 
-
+[Link to Part 2: Google Cloud Vision](https://github.com/PonceLab/as-simple-as-possible/blob/main/Image_Content_Analysis/labeling_with_Google_Cloud_Vision.md)
   
 # Functions
 
