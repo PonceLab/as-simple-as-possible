@@ -17,12 +17,20 @@ This repo is organized into four folders corresponding the class of analysis plu
 
 The links in the table of contents take you to markdown files for display on github. We also provide actual MATLAB livescripts in the same folders. Simply clone this repository to your computer and browse the directories. Whenever possible we include dependencies here in this repository. When we do not we offer instructions on installing them yourself in the livescripts where they are needed. If a function is not recognized then it is probably in a [standard MATLAB toolbox](https://www.mathworks.com/help/matlab/index.html) (e.g. the [computer vision toolbox](https://www.mathworks.com/products/computer-vision.html)). We may not have noticed since we install all toolboxes by default on our laboratory machines. 
 
+Clone the repo, get the livescripts running, and study the examples. Then adapt for your own purposes. Just don't forget to cite us please!
+
+## Related repositories
+
+A neuron-guided image synthesis algorithm called [Xdream](https://github.com/willwx/XDream) was developed in collaboration with Carlos Ponce. We replaced the optimizer with [CMAES](https://github.com/Animadversio/CMAES_optimizer_matlab) and adapted the [image generating up-convolution CNN](https://github.com/Evolving-AI-Lab/synthesizing) for MATLAB (to be released in an upcoming publication). 
+
+
+
 ### Update 07/16/2021
 Work was completed on 07/06/2021 the remaining work is to:
-[] Link to stuff that carlos recommended
-[] Show how to install the alexnet for matlab stuff (reference things I shared with victoria and katie) 
-[] check for toolbox dependencies
-[] Update this main readme to provide guidance for downloading and running
+- [x] Link to stuff that carlos recommended
+- [ ] Show how to install the alexnet for matlab stuff (reference things I shared with victoria and katie) 
+- [ ] check for toolbox dependencies
+- [ ] Update this main readme to provide guidance for downloading and running
 
 
 ### ~~Assignments for tasks within the PonceLab group~~
