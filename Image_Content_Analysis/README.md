@@ -1,45 +1,9 @@
 [Link to Part 2: Google Cloud Vision](https://github.com/PonceLab/as-simple-as-possible/blob/main/Image_Content_Analysis/labeling_with_Google_Cloud_Vision.md)
-# License
+
+### License
 
 
-Please cite the following publication when using or adapting this software or substantial portion thereof for work resulting a publication:
-
-
-
-
-Rose O., Johnson J.K., Wang B. and Ponce C.R.; As simple as possible, but not simpler: features of the neural code for object recognition; JOURNAL TBA
-
-
-
-
-(also see the CITATION file)
-
-
-  
-
-
-MIT License
-
-
-
-
-Copyright (c) 2021 PonceLab
-
-
-
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-
-
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-
-
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
+<sup><sub> Please cite the following publication when using or adapting this software or substantial portion thereof for work resulting a publication (also see the CITATION file) :<br/>Rose O., Johnson J.K., Wang B. and Ponce C.R.; As simple as possible, but not simpler: features of the neural code for object recognition; JOURNAL TBA<br/><br/>MIT License<br/>Copyright (c) 2021 PonceLab<br/>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:<br/>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.<br/>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. </sup></sub>
 
 
 ```matlab:Code
@@ -316,7 +280,7 @@ visualizeSingleSemanticLabelCloud(imagePath,cloud.labelLayer,cloud.sortedClassNa
 ```
 
 
-![figure_0.eps](labeling_with_COCO_stuff_resnet_images/figure_0.eps)
+![figure_0.png](labeling_with_COCO_stuff_resnet_images/figure_0.png)
 
 
 ![figure_1.png](labeling_with_COCO_stuff_resnet_images/figure_1.png)
@@ -354,44 +318,6 @@ end
 
 
 ```text:Output
-Device: CPU
-Model: DeepLabV2_ResNet101_MSC
-Device: CPU
-Model: DeepLabV2_ResNet101_MSC
-Device: CPU
-Model: DeepLabV2_ResNet101_MSC
-Device: CPU
-Model: DeepLabV2_ResNet101_MSC
-Device: CPU
-Model: DeepLabV2_ResNet101_MSC
-Device: CPU
-Model: DeepLabV2_ResNet101_MSC
-Device: CPU
-Model: DeepLabV2_ResNet101_MSC
-Device: CPU
-Model: DeepLabV2_ResNet101_MSC
-Device: CPU
-Model: DeepLabV2_ResNet101_MSC
-Device: CPU
-Model: DeepLabV2_ResNet101_MSC
-Device: CPU
-Model: DeepLabV2_ResNet101_MSC
-Device: CPU
-Model: DeepLabV2_ResNet101_MSC
-Device: CPU
-Model: DeepLabV2_ResNet101_MSC
-Device: CPU
-Model: DeepLabV2_ResNet101_MSC
-Device: CPU
-Model: DeepLabV2_ResNet101_MSC
-Device: CPU
-Model: DeepLabV2_ResNet101_MSC
-Device: CPU
-Model: DeepLabV2_ResNet101_MSC
-Device: CPU
-Model: DeepLabV2_ResNet101_MSC
-Device: CPU
-Model: DeepLabV2_ResNet101_MSC
 Device: CPU
 Model: DeepLabV2_ResNet101_MSC
 ```
@@ -462,7 +388,7 @@ ax.YLabel.Position=[-1.1070   -0.0161   -1.0000];
 ```
 
 
-![figure_2.eps](labeling_with_COCO_stuff_resnet_images/figure_2.eps)
+![figure_2.png](labeling_with_COCO_stuff_resnet_images/figure_2.png)
 
 
 ```matlab:Code
@@ -543,7 +469,7 @@ ax.YLabel.Position=[-1.1070   -0.0161   -1.0000];
 ```
 
 
-![figure_3.eps](labeling_with_COCO_stuff_resnet_images/figure_3.eps)
+![figure_3.png](labeling_with_COCO_stuff_resnet_images/figure_3.png)
 
 
 ```matlab:Code
@@ -561,6 +487,7 @@ plant outdoor stuff: Chi-square = NaN, p = NaN;     solid outdoor stuff: Chi-squ
 The bar chart shows the relative enrichment of one label in the daisy category over the macaque category if values are positive. The reverse is true for negative values. We have also printed the exact chi-square values that correspond to the bon-ferroni significance indicated with * in the plot labels.
 
 [Link to Part 2: Google Cloud Vision](https://github.com/PonceLab/as-simple-as-possible/blob/main/Image_Content_Analysis/labeling_with_Google_Cloud_Vision.md)
+
   
 # Functions
 
