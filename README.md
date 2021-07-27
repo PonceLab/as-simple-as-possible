@@ -28,9 +28,9 @@ A neuron-guided image synthesis algorithm called [Xdream](https://github.com/wil
 ### Update 07/16/2021
 Work was completed on 07/06/2021 the remaining work is to:
 - [x] Link to stuff that carlos recommended
-- [ ] Show how to install the alexnet for matlab stuff (reference things I shared with victoria and katie) 
-- [ ] check for toolbox dependencies
-- [ ] Update this main readme to provide guidance for downloading and running
+- [x] Show how to install the alexnet for matlab stuff (reference things I shared with victoria and katie) 
+- [x] check for toolbox dependencies
+- [x] Update this main readme to provide guidance for downloading and running
 
 
 ### ~~Assignments for tasks within the PonceLab group~~
