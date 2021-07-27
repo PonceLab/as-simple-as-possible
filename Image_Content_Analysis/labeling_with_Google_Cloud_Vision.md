@@ -51,7 +51,7 @@ addpath(genpath(fullfile(fileparts(pwd),'utils')))
 ```
 
   
-# Using Google Cloud Service for Large Scale Image Labelling
+# Part 2: Using Google Cloud Service for Large Scale Image Labelling
 
 
 This livescript demonstrates accessing the Google Cloud Vision API and interpreting results. With cloud vision one can obtain very precise labels for images and discover whether an impartial judge has found them to contain certain types of content. It allows for qualitative characterization of image content en-masse. 
