@@ -23,6 +23,7 @@ Clone the repo, get the livescripts running, and study the examples. Then adapt 
 
 A neuron-guided image synthesis algorithm called [Xdream](https://github.com/willwx/XDream) was developed in collaboration with Carlos Ponce. We replaced the optimizer with [CMAES](https://github.com/Animadversio/CMAES_optimizer_matlab) and adapted the [image generating up-convolution CNN](https://github.com/Evolving-AI-Lab/synthesizing) for MATLAB (to be released in an upcoming publication). 
 
+Should you like to share your MATLAB livescripts on Github you may be interested in this function which automatically converts livescripts into markdown so they can be displayed like jupyter notebooks. [latex2markdown](https://blogs.mathworks.com/pick/2021/01/08/convert-your-live-scripts-to-markdown-file/)
 
 
 ### Update 07/16/2021
@@ -50,8 +51,8 @@ Fill out the Google cloud vision part of the image content analysis folder (+ so
 ~~After the work date:
 James will do the merges, any cleaning that is needed and make sure everything imports like it should. He will put the dependents in a requirements.txt file and/or a script that can be run, or quality advice given to setting up MATLAB to work with python.~~
 
-### useful links
+~~useful links~~
 
-https://blogs.mathworks.com/pick/2021/01/08/convert-your-live-scripts-to-markdown-file/
+~~https://blogs.mathworks.com/pick/2021/01/08/convert-your-live-scripts-to-markdown-file/~~
 
-https://www.markdownguide.org/cheat-sheet/
+~~https://www.markdownguide.org/cheat-sheet/ ~~
