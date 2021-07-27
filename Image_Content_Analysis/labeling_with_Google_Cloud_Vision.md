@@ -332,6 +332,8 @@ wordcloud(categorical(labels_all))
 
 
 ![figure_2.png](labeling_with_Google_Cloud_Vision_images/figure_2.png)
+
+
 [Link to Part 1: COCO-stuff](https://github.com/PonceLab/as-simple-as-possible/blob/main/Image_Content_Analysis/README.md)
 
 
