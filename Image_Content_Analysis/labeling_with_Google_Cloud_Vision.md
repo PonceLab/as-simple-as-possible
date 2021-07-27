@@ -1,3 +1,4 @@
+[Link to Part 1: COCO-stuff](https://github.com/PonceLab/as-simple-as-possible/blob/main/Image_Content_Analysis/README.md)
 # License
 
 
@@ -59,6 +60,8 @@ This livescript demonstrates accessing the Google Cloud Vision API and interpret
 
 
 Link to the [Tutorial in Binxu's Blog](https://animadversio.github.io/tech_note/using-google-cloud-service-for-large-scale-image-labelling). 
+
+[Link to Part 1: COCO-stuff](https://github.com/PonceLab/as-simple-as-possible/blob/main/Image_Content_Analysis/README.md)
 
 
 # Installing Google SDK
@@ -329,6 +332,7 @@ wordcloud(categorical(labels_all))
 
 
 ![figure_2.png](labeling_with_Google_Cloud_Vision_images/figure_2.png)
+[Link to Part 1: COCO-stuff](https://github.com/PonceLab/as-simple-as-possible/blob/main/Image_Content_Analysis/README.md)
 
 
 ```matlab:Code
