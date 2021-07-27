@@ -60,15 +60,6 @@ Investigators often have specific visual concepts they want to operationalize, b
 This approach was inspired by the practice of fMRI-analysis localizer techniques, where one selects voxels using one dataset, testing the selected voxels with separately collected data sets. 
 
 
-
-```matlab:Code
-% add the necessary files to the path (this should be all that is required)
-addpath(genpath(pwd))
-addpath(genpath(fullfile(fileparts(pwd),'data')))
-addpath(genpath(fullfile(fileparts(pwd),'utils')))
-
-```
-
 # Creating the ensemble
 
 
