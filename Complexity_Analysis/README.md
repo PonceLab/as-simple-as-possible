@@ -4,7 +4,7 @@
 <sup><sub> Please cite the following publication when using or adapting this software or substantial portion thereof for work resulting a publication (also see the CITATION file) :<br/>Rose O., Johnson J.K., Wang B. and Ponce C.R.; As simple as possible, but not simpler: features of the neural code for object recognition; JOURNAL TBA<br/><br/>MIT License<br/>Copyright (c) 2021 PonceLab<br/>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:<br/>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.<br/>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. </sup></sub>
 
 
-```matlab:Code
+```Matlab
 % add the necessary files to the path (this should be all that is required)
 addpath(genpath(pwd))
 addpath(genpath(fullfile(fileparts(pwd),'data')))
@@ -25,7 +25,7 @@ First, we load up images using imageDatastore. These images were downloaded from
 
 
 
-```matlab:Code
+```Matlab
 testImStack = [] ;
 myDS = imageDatastore('..\data\natural-image-examples');
 pics = readall(myDS);
@@ -47,7 +47,7 @@ title('Example images')
 ![figure_0.png](Complexity_Analysis_images/figure_0.png)
 
 
-```matlab:Code
+```Matlab
 
 ```
 
@@ -59,7 +59,7 @@ The complexity ratio is the inverse of the compression ratio. The image is first
 
 
 
-```matlab:Code
+```Matlab
 frac_all = 1 - 2.^(-9:-1) ; % fractions here are 99.8% to 50%.
 dcStacks = nan([size(testImStack,[1 2]) 1, size(testImStack,4)]) ;
 cRatio_examples = nan(size(testImStack,4),numel(frac_all));
@@ -141,7 +141,7 @@ How this works:
 
 
 
-```matlab:Code
+```Matlab
 
 fragCount_all = nan(1,size(testImStack,4));
 segmentedPics_all = [] ;
@@ -188,7 +188,7 @@ Plot the images and their clustered versions, sorted by number of parts.
 
 
 
-```matlab:Code
+```Matlab
 [~,iSort] = sort(fragCount_all(:,1),'ascend') ;
 
 fig = figure;
@@ -213,13 +213,13 @@ end
 ![figure_3.png](Complexity_Analysis_images/figure_3.png)
 
 
-```matlab:Code
+```Matlab
 
 ```
 
 # Functions
 
-```matlab:Code
+```Matlab
 function [comp_ratio,frac_all,dct] = Project_CMA_computeCompRatio_aux(im,varargin)
 
 if nargin == 1

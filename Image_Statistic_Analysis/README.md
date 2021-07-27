@@ -5,7 +5,7 @@
 
 
 
-```matlab:Code
+```Matlab
 % add the necessary files to the path (this should be all that is required)
 addpath(genpath(pwd))
 addpath(genpath(fullfile(fileparts(pwd),'data')))
@@ -26,7 +26,7 @@ First, we load up images using imageDatastore. These images were downloaded from
 
 
 
-```matlab:Code
+```Matlab
 testImStack = [] ;
 lumImStack = [] ;
 myDS = imageDatastore('..\data\natural-image-examples');
@@ -58,7 +58,7 @@ The CIE 1976 L*a*b*  includes a physiological luminance channel, analogous to gr
 
 
 
-```matlab:Code
+```Matlab
 statName='Mean Luminance';
 statVec=zeros(1,size(testImStack,4));
 for imNdx=1:length(statVec)
@@ -78,7 +78,7 @@ The energy of a distribution is roughly it's "peakiness". It denotes the absence
 
 
 
-```matlab:Code
+```Matlab
 statName='Luminance Energy';
 statVec=zeros(2,size(testImStack,4));
 for imNdx=1:length(statVec)
@@ -98,7 +98,7 @@ Entropy is the information density of the image, sometimes labeled as a measure 
 
 
 
-```matlab:Code
+```Matlab
 statName='Luminance Entropy';
 plotStatisticTiles(testImStack,statVec(2,:),statName)
 ```
@@ -114,7 +114,7 @@ The stationarity of an image is a measure of wether all parts of the image have 
 
 
 
-```matlab:Code
+```Matlab
 statName='Log-Likelihood of Stationarity';
 statVec=zeros(1,size(testImStack,4));
 for imNdx=1:length(statVec)
@@ -150,7 +150,7 @@ Tamura's contrast is the standard deviation of the luminance divided by the kurt
 
 
 
-```matlab:Code
+```Matlab
 statName='Tamura''s Luminance Contrast Statistic';
 statVec=zeros(5,size(testImStack,4));
 for imNdx=1:length(statVec)
@@ -170,7 +170,7 @@ Tamura's Coarseness measures the scale of a texture. The value is the average wo
 
 
 
-```matlab:Code
+```Matlab
 statName='Tamura''s Texture Coarseness Statistic';
 plotStatisticTiles(testImStack,statVec(2,:),statName)
 ```
@@ -186,7 +186,7 @@ Tamura's line-likeness measures whether the image is composed of lines at a part
 
 
 
-```matlab:Code
+```Matlab
 statName='Tamura''s Texture Line-Likeness Statistic';
 plotStatisticTiles(testImStack,statVec(3,:),statName)
 ```
@@ -202,7 +202,7 @@ Tamura's directionality measures both the strength of oriented elements relative
 
 
 
-```matlab:Code
+```Matlab
 statName='Tamura''s Texture Directionality Statistic';
 plotStatisticTiles(testImStack,statVec(4,:),statName)
 ```
@@ -218,7 +218,7 @@ Tamura's regularity measures how much images vary according to the previously ca
 
 
 
-```matlab:Code
+```Matlab
 statName='Tamura''s Texture Regularity Statistic';
 plotStatisticTiles(testImStack,statVec(5,:),statName)
 ```
@@ -230,7 +230,7 @@ plotStatisticTiles(testImStack,statVec(5,:),statName)
   
 # Functions
 
-```matlab:Code
+```Matlab
 % % If possible all necessary functions will be defined in this same file here at the bottom 
 %     [totalHOGSelStack]=orientationDominanceIndex(im,cellSize,ptile)
 %         meanLum=mean(im,'all','omitnan');
@@ -241,7 +241,7 @@ plotStatisticTiles(testImStack,statVec(5,:),statName)
 ```
 
 
-```matlab:Code
+```Matlab
 function [totalHOGSelStack]=orientationDominanceIndex(imStack,cellSize,ptile)
 
 % helper funcs

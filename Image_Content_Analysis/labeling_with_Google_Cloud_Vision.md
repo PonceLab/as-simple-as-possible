@@ -6,7 +6,7 @@
 <sup><sub> Please cite the following publication when using or adapting this software or substantial portion thereof for work resulting a publication (also see the CITATION file) :<br/>Rose O., Johnson J.K., Wang B. and Ponce C.R.; As simple as possible, but not simpler: features of the neural code for object recognition; JOURNAL TBA<br/><br/>MIT License<br/>Copyright (c) 2021 PonceLab<br/>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:<br/>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.<br/>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. </sup></sub>
 
 
-```matlab:Code
+```Matlab
 % add the necessary files to the path (this should be all that is required)
 addpath(genpath(pwd))
 addpath(genpath(fullfile(fileparts(pwd),'data')))
@@ -52,7 +52,7 @@ Link to the [Tutorial in Binxu's Blog](https://animadversio.github.io/tech_note/
 
 
 
-```matlab:Code(Display)
+```Matlab(Display)
 conda install -c conda-forge google-cloud-vision
 ```
 
@@ -62,7 +62,7 @@ Following packages may be necassary
 
 
 
-```matlab:Code(Display)
+```Matlab(Display)
 conda install -c conda-forge google-api-python-client
 conda install -c conda-forge google-auth
 conda install -c conda-forge google-auth-oauthlib
@@ -95,7 +95,7 @@ conda install -c conda-forge google-auth-oauthlib
 
 
 
-```matlab:Code(Display)
+```Matlab(Display)
 import os
 import io
 import json
@@ -167,7 +167,7 @@ After you run the code, you will see output like the following
 
 
 
-```matlab:Code(Display)
+```Matlab(Display)
 401 Images in 2019-08-19-Beto folder
 52.jpg
 Labels:
@@ -210,7 +210,7 @@ Next we read the json file in matlab and do some quick analysis, here we put the
 
 
 
-```matlab:Code
+```Matlab
 cd D:\Poncelab_Github\as-simple-as-possible
 imgdir = ".\data\cloud_vision_demo"
 ```
@@ -221,7 +221,7 @@ imgdir = ".\data\cloud_vision_demo"
 ```
 
 
-```matlab:Code
+```Matlab
 [img2labelmap, imgnms, labels] = parsejson(".\data\cloud_vision_demo\label_result.json");
 ```
 
@@ -231,7 +231,7 @@ Let's see some examples images and labels.
 
 
 
-```matlab:Code
+```Matlab
 imshow(fullfile(imgdir,"n01494475_17826.JPEG"))
 ```
 
@@ -239,7 +239,7 @@ imshow(fullfile(imgdir,"n01494475_17826.JPEG"))
 ![figure_0.png](labeling_with_Google_Cloud_Vision_images/figure_0.png)
 
 
-```matlab:Code
+```Matlab
 struct2table(img2labelmap("n01494475_17826.JPEG"))
 ```
 
@@ -256,7 +256,7 @@ struct2table(img2labelmap("n01494475_17826.JPEG"))
 |9|"Zoo"|0.5008|
 
 
-```matlab:Code
+```Matlab
 
 imshow(fullfile(imgdir,"COCO_train2014_000000003008.jpg"))
 ```
@@ -265,7 +265,7 @@ imshow(fullfile(imgdir,"COCO_train2014_000000003008.jpg"))
 ![figure_1.png](labeling_with_Google_Cloud_Vision_images/figure_1.png)
 
 
-```matlab:Code
+```Matlab
 struct2table(img2labelmap("COCO_train2014_000000003008.jpg"))
 ```
 
@@ -288,7 +288,7 @@ Here is the wordcloud of all labels for this batch of images.
 
 
 
-```matlab:Code
+```Matlab
 labels_all = cat(1,labels.labels);
 wordcloud(categorical(labels_all))
 ```
@@ -300,7 +300,7 @@ wordcloud(categorical(labels_all))
 [Link to Part 1: COCO-stuff](https://github.com/PonceLab/as-simple-as-possible/blob/main/Image_Content_Analysis/README.md)
 
 
-```matlab:Code
+```Matlab
 function [img2labelmap, imgnms, labelarr] = parsejson(json_path)
 py.importlib.import_module("json");
 jsondata = py.json.load(py.open(json_path,"r"));

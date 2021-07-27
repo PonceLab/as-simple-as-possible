@@ -6,7 +6,7 @@
 <sup><sub> Please cite the following publication when using or adapting this software or substantial portion thereof for work resulting a publication (also see the CITATION file) :<br/>Rose O., Johnson J.K., Wang B. and Ponce C.R.; As simple as possible, but not simpler: features of the neural code for object recognition; JOURNAL TBA<br/><br/>MIT License<br/>Copyright (c) 2021 PonceLab<br/>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:<br/>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.<br/>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. </sup></sub>
 
 
-```matlab:Code
+```Matlab
 % add the necessary files to the path (this should be all that is required)
 addpath(genpath(pwd))
 addpath(genpath(fullfile(fileparts(pwd),'data')))
@@ -32,7 +32,7 @@ We recommend against using a virtual enviroment because it can be more complex t
 
 
 
-```matlab:Code(Display)
+```Matlab(Display)
 # Set up with Anaconda
 conda env create -f deeplab-pytorch-master/configs/conda_env.yaml
 conda activate deeplab-pytorch
@@ -49,7 +49,7 @@ You will also need to install `pydensecrf `which can be done from the Anaconda p
 
 
 
-```matlab:Code(Display)
+```Matlab(Display)
 pip install git+https://github.com/lucasb-eyer/pydensecrf.git
 ```
 
@@ -64,7 +64,7 @@ The bash script which downloads the weights can be run like this:
 
 
 
-```matlab:Code(Display)
+```Matlab(Display)
 $ bash deeplab-pytorch-master/scripts/setup_caffemodels.sh
 ```
 
@@ -74,7 +74,7 @@ After placing the model weights in the right folders you will need to run conver
 
 
 
-```matlab:Code(Display)
+```Matlab(Display)
 python convert.py --dataset coco
 ```
 
@@ -118,7 +118,7 @@ First we will provide an example of running the segmentation and labeling on a s
 
 
 
-```matlab:Code
+```Matlab
  % There is a test image already located in the fork of deeplab-pytorch
  % you need only to provide a path to the image, see the help for what parameters are available. These are as used in Rose et al. 
  imagePath=".\image.jpg"
@@ -130,7 +130,7 @@ imagePath = ".\image.jpg"
 ```
 
 
-```matlab:Code
+```Matlab
 [maps,resNetParams]=getLabelMaps(imagePath)
 ```
 
@@ -169,7 +169,7 @@ resNetParams =
 
 
 
-```matlab:Code
+```Matlab
 % just provide the outputs of the previous functions
 [cloud]=convertMaps2Wordcloud(maps,resNetParams)
 ```
@@ -214,7 +214,7 @@ It helps to get a sense of how the algorithm thinks labels are related in an ima
 
 
 
-```matlab:Code
+```Matlab
 [adjMat]=getLabelRelationships(cloud,maps)
 ```
 
@@ -271,7 +271,7 @@ adjMat =
 
 
 
-```matlab:Code
+```Matlab
 imagePath=fullfile('.\deeplab-pytorch-master',resNetParams.imagePath);
 visualizeSingleSemanticLabelCloud(imagePath,cloud.labelLayer,cloud.sortedClassNames,adjMat.labelLocMap,adjMat.labelNetworkOverlap);
 ```
@@ -291,7 +291,7 @@ Having obtained a set of labels for a single image we now demonstrate counting l
 
 
 
-```matlab:Code
+```Matlab
 % two small samples from AlexNet
 daisies=dir('..\data\daisy\*.JPEG');
 macaques=dir('..\data\macaque\*.JPEG');
@@ -320,7 +320,7 @@ Model: DeepLabV2_ResNet101_MSC
 ```
 
 
-```matlab:Code
+```Matlab
 labelFreqs=labelCounts./sum(labelCounts,2);
 
 % print all the labels and their frequencies for each category
@@ -347,7 +347,7 @@ In the above we can see that there are a lot of labels and some small difference
   
   
 
-```matlab:Code
+```Matlab
 % now re-group the labels by the 3rd level of the hierarchy
 pick3rd=@(x) x(1:3);
 pick1st=@(x) strjoin(x([1,3]),' ');
@@ -388,7 +388,7 @@ ax.YLabel.Position=[-1.1070   -0.0161   -1.0000];
 ![figure_2.png](labeling_with_COCO_stuff_resnet_images/figure_2.png)
 
 
-```matlab:Code
+```Matlab
 disp(['Daisy, hierarchy label counts: ',newline,strjoin(daisyReport,''),newline,newline,newline,newline,'Macaque, hierarchy label counts: ',newline,strjoin(macaqueReport,''),newline])
 ```
 
@@ -407,7 +407,7 @@ While this is easier to interpret there are still many categories and there seem
 
 
 
-```matlab:Code
+```Matlab
 
 % get only the labels distinguishable from zero
 labelFreqSTD=std(hierarchLabelFreqs,[],2);
@@ -469,7 +469,7 @@ ax.YLabel.Position=[-1.1070   -0.0161   -1.0000];
 ![figure_3.png](labeling_with_COCO_stuff_resnet_images/figure_3.png)
 
 
-```matlab:Code
+```Matlab
 disp(['Chi-square statistics: ',newline,strjoin(statisticsReport,''),newline])
 ```
 
@@ -493,7 +493,7 @@ These are the functions that do all the hardwork. Inspect them to gain a deeper 
 
 
 
-```matlab:Code
+```Matlab
 function [maps,resNetParams]=getLabelMaps(imagePath,resNetParams)
 % Please cite the following publication when using or adapting this software or substantial portion thereof for work resulting a publication:
 % Rose O., Johnson J.K., Wang B. and Ponce C.R.; As simple as possible, but not simpler: features of the neural code for object recognition; JOURNAL TBA

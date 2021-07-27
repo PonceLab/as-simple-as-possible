@@ -4,7 +4,7 @@
 <sup><sub> Please cite the following publication when using or adapting this software or substantial portion thereof for work resulting a publication (also see the CITATION file) :<br/>Rose O., Johnson J.K., Wang B. and Ponce C.R.; As simple as possible, but not simpler: features of the neural code for object recognition; JOURNAL TBA<br/><br/>MIT License<br/>Copyright (c) 2021 PonceLab<br/>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:<br/>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.<br/>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. </sup></sub>
 
 
-```matlab:Code
+```Matlab
 % check for dependencies
 hasDLToolBox=contains(struct2array(ver), 'Deep Learning Toolbox');
 hasCaffeImporter=matlab.addons.isAddonEnabled('Deep Learning Toolbox Importer for Caffe Models');
@@ -46,7 +46,7 @@ In this section, we declare the neural network and layer in which to identify th
 
 
 
-```matlab:Code
+```Matlab
 net = alexnet; % readily available in Matlab. Calling it for the first time will prompt a way to download it from Mathworks.
 net_name = 'alexnet';
 layers_all = {'relu1', 'relu2','relu3','relu4','relu5','relu6','relu7','fc8'} ;
@@ -105,7 +105,7 @@ Now you can input the separately collected input images and quantify the activat
 
 
 
-```matlab:Code
+```Matlab
 testImStack = [] ;
 myDS = imageDatastore('..\data\natural-image-examples');
 pics = readall(myDS);
@@ -139,13 +139,13 @@ end
 ![figure_1.png](Semantic_Ensemble_Analysis_images/figure_1.png)
 
 
-```matlab:Code
+```Matlab
 
 ```
 
 # Functions
 
-```matlab:Code
+```Matlab
 function [ens_units,mean_Target,mean_Alternative,auTarget,auAlternative] = identifyEnsemble(dsTarget,dsAlternative,net,t_layer,myP_threshold)
 
 auTarget = augmentedImageDatastore(net.Layers(1).InputSize,dsTarget,...
