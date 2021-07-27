@@ -116,7 +116,6 @@ First we will provide an example of running the segmentation and labeling on a s
   
 ### Output the segmentation maps
 
-\hfill \break
 
 
 ```matlab:Code
@@ -168,7 +167,6 @@ resNetParams =
   
 ### Output the widely applied labels
 
-\hfill \break
 
 
 ```matlab:Code
@@ -271,7 +269,6 @@ adjMat =
   
 ### Visualize the label relationships and the labels in the image
 
-\hfill \break
 
 
 ```matlab:Code
