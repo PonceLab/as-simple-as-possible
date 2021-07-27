@@ -5,6 +5,22 @@
 
 
 ```matlab:Code
+% check for dependencies
+hasDLToolBox=contains(struct2array(ver), 'Deep Learning Toolbox');
+hasCaffeImporter=matlab.addons.isAddonEnabled('Deep Learning Toolbox Importer for Caffe Models');
+if any(~[hasDLToolBox,hasCaffeImporter])
+    link1='<a href="matlab:web(''https://www.mathworks.com/products/deep-learning.html?s_tid=srchtitle'')">''Deep Learning Toolbox''</a>'
+    link2='<a href="matlab:web(''https://www.mathworks.com/matlabcentral/fileexchange/61735-deep-learning-toolbox-importer-for-caffe-models?s_tid=srchtitle'')">''Caffe Importer''</a>'
+    if all(~[hasDLToolBox,hasCaffeImporter])
+    errText=['You need to install some add-ons: Go to the "APPS" tab on MATLAB and search for "Deep Learning Toolbox" and "Deep Learning Toolbox Importer for Caffe Models". Verify you have the right ones by checking them against these websites: ',link1,' AND ',link2] ;
+    elseif ~hasDLToolBox
+    errText=['You need to install an add-on: Go to the "APPS" tab on MATLAB and search for "Deep Learning Toolbox". Verify you have the right one by checking it against this website: ',link1] ;
+    else
+    errText=['You need to install an add-on: Go to the "APPS" tab on MATLAB and search for "Deep Learning Toolbox Importer for Caffe Models". Verify you have the right one by checking it against this website: ',link2] ;
+    end
+    error(errText)
+end
+
 % add the necessary files to the path (this should be all that is required)
 addpath(genpath(pwd))
 addpath(genpath(fullfile(fileparts(pwd),'data')))
