@@ -28,6 +28,7 @@ Should you like to share your MATLAB livescripts on Github you may be interested
 
 ### Update 07/16/2021
 Work was completed on 07/06/2021 the remaining work is to:
+- [ ] Get scrutiny from the other authors
 - [x] Link to stuff that carlos recommended
 - [x] Show how to install the alexnet for matlab stuff (reference things I shared with victoria and katie) 
 - [x] check for toolbox dependencies
