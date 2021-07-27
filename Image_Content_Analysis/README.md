@@ -49,7 +49,7 @@ addpath(genpath(fullfile(fileparts(pwd),'data')))
 addpath(genpath(fullfile(fileparts(pwd),'utils')))
 ```
 
-# Analyzing image content with fuzzy-semantic segmentation
+# Part 1: Analyzing image content with fuzzy-semantic segmentation
 
 
 This livescript demonstrates a way to use image labeling to quantitatively score the semantic content of image sets relative to one another. This is in contrast to other image labeling methods which are more precise, but the cost of precision is that quantitative comparison is difficult. 
