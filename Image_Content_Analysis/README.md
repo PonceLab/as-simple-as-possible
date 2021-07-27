@@ -157,7 +157,36 @@ First we will provide an example of running the segmentation and labeling on a s
  % There is a test image already located in the fork of deeplab-pytorch
  % you need only to provide a path to the image, see the help for what parameters are available. These are as used in Rose et al. 
  imagePath=".\image.jpg"
+```
+
+
+```text:Output
+imagePath = ".\image.jpg"
+```
+
+
+```matlab:Code
 [maps,resNetParams]=getLabelMaps(imagePath)
+```
+
+
+```text:Output
+Device: CPU
+Model: DeepLabV2_ResNet101_MSC
+maps = 
+    labelMapList: [513x513x10 double]
+     probMapList: [513x513x10x182 double]
+       classList: [1x1 py.dict]
+
+resNetParams = 
+      configPath: ".\configs\cocostuff164k.yaml"
+       modelPath: ".\data\models\coco\deeplabv1_resnet101\caffemodel\deeplabv2_resnet101_msc-cocostuff164k-100000.pth"
+       imagePath: ".\image.jpg"
+            cuda: 0
+             crf: 1
+      sizeThresh: 0.1111
+    maxIteration: 10
+
 ```
 
 
@@ -179,6 +208,18 @@ First we will provide an example of running the segmentation and labeling on a s
 ```matlab:Code
 % just provide the outputs of the previous functions
 [cloud]=convertMaps2Wordcloud(maps,resNetParams)
+```
+
+
+```text:Output
+cloud = 
+             nLayers: 10
+           segImSize: [513 513]
+        sortedLabels: [25x1 double]
+    sortedClassNames: {25x1 cell}
+          labelLayer: [25x1 double]
+             nLabels: 25
+
 ```
 
 
@@ -211,6 +252,19 @@ It helps to get a sense of how the algorithm thinks labels are related in an ima
 
 ```matlab:Code
 [adjMat]=getLabelRelationships(cloud,maps)
+```
+
+
+```text:Output
+adjMat = 
+       labelNetworkOverlap: [25x25 double]
+    labelNetworkOverlapDir: [25x25 double]
+     labelNetworkJointProb: [25x25 double]
+        labelNetworkRelEnt: [25x25 double]
+               labelLocMap: [513x513 double]
+               labelClusts: [25x1 double]
+            labelCentroids: [25x2 double]
+
 ```
 
 
@@ -259,6 +313,12 @@ imagePath=fullfile('.\deeplab-pytorch-master',resNetParams.imagePath);
 visualizeSingleSemanticLabelCloud(imagePath,cloud.labelLayer,cloud.sortedClassNames,adjMat.labelLocMap,adjMat.labelNetworkOverlap);
 ```
 
+
+![figure_0.eps](labeling_with_COCO_stuff_resnet_images/figure_0.eps)
+
+
+![figure_1.png](labeling_with_COCO_stuff_resnet_images/figure_1.png)
+
   
   
 # Example with set of images
@@ -288,6 +348,54 @@ for imType=1:length(imPaths)
         labelCounts(imType,data2Analyze{imType}{imNdx}.sortedLabels+1)=labelCounts(imType,data2Analyze{imType}{imNdx}.sortedLabels+1)+1;
     end
 end
+```
+
+
+```text:Output
+Device: CPU
+Model: DeepLabV2_ResNet101_MSC
+Device: CPU
+Model: DeepLabV2_ResNet101_MSC
+Device: CPU
+Model: DeepLabV2_ResNet101_MSC
+Device: CPU
+Model: DeepLabV2_ResNet101_MSC
+Device: CPU
+Model: DeepLabV2_ResNet101_MSC
+Device: CPU
+Model: DeepLabV2_ResNet101_MSC
+Device: CPU
+Model: DeepLabV2_ResNet101_MSC
+Device: CPU
+Model: DeepLabV2_ResNet101_MSC
+Device: CPU
+Model: DeepLabV2_ResNet101_MSC
+Device: CPU
+Model: DeepLabV2_ResNet101_MSC
+Device: CPU
+Model: DeepLabV2_ResNet101_MSC
+Device: CPU
+Model: DeepLabV2_ResNet101_MSC
+Device: CPU
+Model: DeepLabV2_ResNet101_MSC
+Device: CPU
+Model: DeepLabV2_ResNet101_MSC
+Device: CPU
+Model: DeepLabV2_ResNet101_MSC
+Device: CPU
+Model: DeepLabV2_ResNet101_MSC
+Device: CPU
+Model: DeepLabV2_ResNet101_MSC
+Device: CPU
+Model: DeepLabV2_ResNet101_MSC
+Device: CPU
+Model: DeepLabV2_ResNet101_MSC
+Device: CPU
+Model: DeepLabV2_ResNet101_MSC
+```
+
+
+```matlab:Code
 labelFreqs=labelCounts./sum(labelCounts,2);
 
 % print all the labels and their frequencies for each category
@@ -295,6 +403,15 @@ daisyReport=cellfun(@(x) [classNames{x},' = ',num2str(labelCounts(1,x)),';     '
 macaqueReport=cellfun(@(x) [classNames{x},' = ',num2str(labelCounts(1,x)),';     '],num2cell(1:length(classNames)),'Uni',false);
 
 disp(['Daisy, all label counts: ',newline,strjoin(daisyReport,''),newline,newline,newline,newline,'Macaque, all label counts: ',newline,strjoin(macaqueReport,''),newline])
+```
+
+
+```text:Output
+Daisy, all label counts: 
+person = 6;     bicycle = 0;     car = 0;     motorcycle = 0;     airplane = 0;     bus = 0;     train = 0;     truck = 0;     boat = 0;     traffic light = 0;     fire hydrant = 0;     street sign = 0;     stop sign = 0;     parking meter = 0;     bench = 4;     bird = 9;     cat = 3;     dog = 1;     horse = 0;     sheep = 0;     cow = 0;     elephant = 0;     bear = 0;     zebra = 0;     giraffe = 0;     hat = 0;     backpack = 0;     umbrella = 7;     shoe = 0;     eye glasses = 0;     handbag = 0;     tie = 0;     suitcase = 0;     frisbee = 0;     skis = 0;     snowboard = 0;     sports ball = 0;     kite = 0;     baseball bat = 0;     baseball glove = 0;     skateboard = 0;     surfboard = 0;     tennis racket = 0;     bottle = 0;     plate = 0;     wine glass = 0;     cup = 0;     fork = 0;     knife = 0;     spoon = 0;     bowl = 4;     banana = 4;     apple = 1;     sandwich = 0;     orange = 0;     broccoli = 3;     carrot = 0;     hot dog = 0;     pizza = 0;     donut = 0;     cake = 1;     chair = 6;     couch = 1;     potted plant = 10;     bed = 1;     mirror = 0;     dining table = 5;     window = 0;     desk = 0;     toilet = 0;     door = 0;     tv = 0;     laptop = 0;     mouse = 0;     remote = 0;     keyboard = 0;     cell phone = 0;     microwave = 0;     oven = 0;     toaster = 0;     sink = 0;     refrigerator = 0;     blender = 0;     book = 0;     clock = 0;     vase = 10;     scissors = 0;     teddy bear = 0;     hair drier = 0;     toothbrush = 1;     hair brush = 0;     banner = 0;     blanket = 1;     branch = 8;     bridge = 0;     building-other = 3;     bush = 8;     cabinet = 0;     cage = 1;     cardboard = 0;     carpet = 0;     ceiling-other = 2;     ceiling-tile = 0;     cloth = 1;     clothes = 0;     clouds = 0;     counter = 0;     cupboard = 0;     curtain = 1;     desk-stuff = 0;     dirt = 4;     door-stuff = 0;     fence = 7;     floor-marble = 0;     floor-other = 2;     floor-stone = 0;     floor-tile = 1;     floor-wood = 0;     flower = 10;     fog = 0;     food-other = 2;     fruit = 4;     furniture-other = 6;     grass = 8;     gravel = 0;     ground-other = 9;     hill = 3;     house = 1;     leaves = 10;     light = 1;     mat = 0;     metal = 0;     mirror-stuff = 1;     moss = 5;     mountain = 0;     mud = 0;     napkin = 0;     net = 0;     paper = 0;     pavement = 0;     pillow = 0;     plant-other = 10;     plastic = 0;     platform = 0;     playingfield = 0;     railing = 0;     railroad = 0;     river = 0;     road = 0;     rock = 0;     roof = 0;     rug = 0;     salad = 1;     sand = 0;     sea = 0;     shelf = 1;     sky-other = 4;     skyscraper = 0;     snow = 0;     solid-other = 4;     stairs = 0;     stone = 0;     straw = 5;     structural-other = 0;     table = 5;     tent = 0;     textile-other = 4;     towel = 0;     tree = 8;     vegetable = 4;     wall-brick = 1;     wall-concrete = 5;     wall-other = 10;     wall-panel = 2;     wall-stone = 1;     wall-tile = 0;     wall-wood = 5;     water-other = 1;     waterdrops = 0;     window-blind = 0;     window-other = 10;     wood = 7;     
+
+Macaque, all label counts: 
+person = 6;     bicycle = 0;     car = 0;     motorcycle = 0;     airplane = 0;     bus = 0;     train = 0;     truck = 0;     boat = 0;     traffic light = 0;     fire hydrant = 0;     street sign = 0;     stop sign = 0;     parking meter = 0;     bench = 4;     bird = 9;     cat = 3;     dog = 1;     horse = 0;     sheep = 0;     cow = 0;     elephant = 0;     bear = 0;     zebra = 0;     giraffe = 0;     hat = 0;     backpack = 0;     umbrella = 7;     shoe = 0;     eye glasses = 0;     handbag = 0;     tie = 0;     suitcase = 0;     frisbee = 0;     skis = 0;     snowboard = 0;     sports ball = 0;     kite = 0;     baseball bat = 0;     baseball glove = 0;     skateboard = 0;     surfboard = 0;     tennis racket = 0;     bottle = 0;     plate = 0;     wine glass = 0;     cup = 0;     fork = 0;     knife = 0;     spoon = 0;     bowl = 4;     banana = 4;     apple = 1;     sandwich = 0;     orange = 0;     broccoli = 3;     carrot = 0;     hot dog = 0;     pizza = 0;     donut = 0;     cake = 1;     chair = 6;     couch = 1;     potted plant = 10;     bed = 1;     mirror = 0;     dining table = 5;     window = 0;     desk = 0;     toilet = 0;     door = 0;     tv = 0;     laptop = 0;     mouse = 0;     remote = 0;     keyboard = 0;     cell phone = 0;     microwave = 0;     oven = 0;     toaster = 0;     sink = 0;     refrigerator = 0;     blender = 0;     book = 0;     clock = 0;     vase = 10;     scissors = 0;     teddy bear = 0;     hair drier = 0;     toothbrush = 1;     hair brush = 0;     banner = 0;     blanket = 1;     branch = 8;     bridge = 0;     building-other = 3;     bush = 8;     cabinet = 0;     cage = 1;     cardboard = 0;     carpet = 0;     ceiling-other = 2;     ceiling-tile = 0;     cloth = 1;     clothes = 0;     clouds = 0;     counter = 0;     cupboard = 0;     curtain = 1;     desk-stuff = 0;     dirt = 4;     door-stuff = 0;     fence = 7;     floor-marble = 0;     floor-other = 2;     floor-stone = 0;     floor-tile = 1;     floor-wood = 0;     flower = 10;     fog = 0;     food-other = 2;     fruit = 4;     furniture-other = 6;     grass = 8;     gravel = 0;     ground-other = 9;     hill = 3;     house = 1;     leaves = 10;     light = 1;     mat = 0;     metal = 0;     mirror-stuff = 1;     moss = 5;     mountain = 0;     mud = 0;     napkin = 0;     net = 0;     paper = 0;     pavement = 0;     pillow = 0;     plant-other = 10;     plastic = 0;     platform = 0;     playingfield = 0;     railing = 0;     railroad = 0;     river = 0;     road = 0;     rock = 0;     roof = 0;     rug = 0;     salad = 1;     sand = 0;     sea = 0;     shelf = 1;     sky-other = 4;     skyscraper = 0;     snow = 0;     solid-other = 4;     stairs = 0;     stone = 0;     straw = 5;     structural-other = 0;     table = 5;     tent = 0;     textile-other = 4;     towel = 0;     tree = 8;     vegetable = 4;     wall-brick = 1;     wall-concrete = 5;     wall-other = 10;     wall-panel = 2;     wall-stone = 1;     wall-tile = 0;     wall-wood = 5;     water-other = 1;     waterdrops = 0;     window-blind = 0;     window-other = 10;     wood = 7;     
 ```
 
 
@@ -340,7 +457,23 @@ ax.YTick=[-0.04,0,0.04];
 ax.YLabel.String={'label frequency','difference'};
 ax.YLim=[-0.1,0.07];
 ax.YLabel.Position=[-1.1070   -0.0161   -1.0000];
+```
+
+
+![figure_2.eps](labeling_with_COCO_stuff_resnet_images/figure_2.eps)
+
+
+```matlab:Code
 disp(['Daisy, hierarchy label counts: ',newline,strjoin(daisyReport,''),newline,newline,newline,newline,'Macaque, hierarchy label counts: ',newline,strjoin(macaqueReport,''),newline])
+```
+
+
+```text:Output
+Daisy, hierarchy label counts: 
+accessory outdoor things = 7;     animal outdoor things = 13;     appliance indoor things = 0;     building outdoor stuff = 4;     ceiling indoor stuff = 2;     electronic indoor things = 0;     floor indoor stuff = 3;     food indoor stuff = 11;     food indoor things = 9;     furniture indoor stuff = 14;     furniture indoor things = 23;     ground outdoor stuff = 13;     indoor indoor things = 11;     kitchen indoor things = 4;     outdoor outdoor things = 4;     person outdoor things = 6;     plant outdoor stuff = 72;     rawmaterial indoor stuff = 0;     sky outdoor stuff = 4;     solid outdoor stuff = 14;     sports outdoor things = 0;     structural outdoor stuff = 8;     textile indoor stuff = 7;     vehicle outdoor things = 0;     wall indoor stuff = 24;     water outdoor stuff = 1;     window indoor stuff = 10;     
+
+Macaque, hierarchy label counts: 
+accessory outdoor things = 7;     animal outdoor things = 13;     appliance indoor things = 0;     building outdoor stuff = 4;     ceiling indoor stuff = 2;     electronic indoor things = 0;     floor indoor stuff = 3;     food indoor stuff = 11;     food indoor things = 9;     furniture indoor stuff = 14;     furniture indoor things = 23;     ground outdoor stuff = 13;     indoor indoor things = 11;     kitchen indoor things = 4;     outdoor outdoor things = 4;     person outdoor things = 6;     plant outdoor stuff = 72;     rawmaterial indoor stuff = 0;     sky outdoor stuff = 4;     solid outdoor stuff = 14;     sports outdoor things = 0;     structural outdoor stuff = 8;     textile indoor stuff = 7;     vehicle outdoor things = 0;     wall indoor stuff = 24;     water outdoor stuff = 1;     window indoor stuff = 10;     
 ```
 
 
@@ -405,7 +538,20 @@ ax.YTick=[-0.04,0,0.04];
 ax.YLabel.String={'label frequency','difference'};
 ax.YLim=[-0.1,0.041];
 ax.YLabel.Position=[-1.1070   -0.0161   -1.0000];
+```
+
+
+![figure_3.eps](labeling_with_COCO_stuff_resnet_images/figure_3.eps)
+
+
+```matlab:Code
 disp(['Chi-square statistics: ',newline,strjoin(statisticsReport,''),newline])
+```
+
+
+```text:Output
+Chi-square statistics: 
+plant outdoor stuff: Chi-square = NaN, p = NaN;     solid outdoor stuff: Chi-square = 3.5294, p = 0.060289;     ground outdoor stuff: Chi-square = 1.0526, p = 0.3049;     
 ```
 
 
