@@ -8,6 +8,8 @@ In the paper we used a neuron-guided image synthesis approach to generate the im
 
 We also demonstrate several important practices unique to the use of neuron-guided image synthesis. We showed how to formulate traditional hypothesis about visual selectivity such that agreement with those hypothesis could be scored with convolutional neural networks operating on the synthesized images. We showed how to quantitavely compare the semantic content of two or more image sets and demonstrate that differences in activity were due to image content and not confounding texture-like (adversarial) factors. Lastly we showed how to get an appraisal of what sorts of things an abstract image looks-like that is unbiased by experimentor expectations. We hope this work can serve as a model for other researchers applying neuron-guided image synthesis and make this powerful new approach widespread. 
 
+The title of this repo is in reference to one of our central findings that highlights the strength of using neuron-guided image synthesis instead of using hand-curated sets of visual stimuli to probe neural responses. We were able to show that these hand-curated sets are too simplistic. The images the neurons synthesized had higher part-complexity and reconstruction-complexity than tradition stimulus sets but less complexity that photographs, and less than our image synthesis algorithm is capable of making. This implies that the features these neurons are processing must be both rich and sufficiently flexible to allow various kinds of patterns to be decoded, but not so rich that it overfits incidental features of the visual world; to paraphrase, the code must be “as simple as possible, but not simpler.” ~Roger sessions
+
 ## Table of contents
 This repo is organized into four folders corresponding the class of analysis plus two folders for data and utility functions needed for all folders. In each folder is one or more livescripts which take readers through toy examples and show them how to adapt them to their own needs. Each live script is also converted to markdown for display as the readme for that folder. 
 
@@ -28,36 +30,3 @@ Clone the repo, get the livescripts running, and study the examples. Then adapt 
 A neuron-guided image synthesis algorithm called [Xdream](https://github.com/willwx/XDream) was developed in collaboration with Carlos Ponce. [Binxu Wang](https://github.com/Animadversio) replaced the optimizer with [CMAES](https://github.com/Animadversio/CMAES_optimizer_matlab) and adapted the [image generating up-convolution CNN](https://github.com/Evolving-AI-Lab/synthesizing) for MATLAB (to be released in an upcoming publication). 
 
 Should you like to share your MATLAB livescripts on Github you may be interested in this function which automatically converts livescripts into markdown so they can be displayed like jupyter notebooks: [latex2markdown](https://blogs.mathworks.com/pick/2021/01/08/convert-your-live-scripts-to-markdown-file/)
-
-
-### Update 07/16/2021
-Work was completed on 07/06/2021 the remaining work is to:
-- [ ] Get scrutiny from the other authors
-- [x] Link to stuff that carlos recommended
-- [x] Show how to install the alexnet for matlab stuff (reference things I shared with victoria and katie) 
-- [x] check for toolbox dependencies
-- [x] Update this main readme to provide guidance for downloading and running
-
-
-### ~~Assignments for tasks within the PonceLab group~~
-~~Work date: 07/06/2021~~
-
-~~Guidelines: Everyone make a fork or just download the structure work on your computer then James will do the merge. Be mindful of what should probably go in the "utils" and "data" folder and do that. Keep the analysis folders limited to the livescript + any scripts or functions that absolutely could not fit in the livescript, and that no one else is likely to use in their folders. Thus, ranksum2 would go in utils, not in a livescript. All dependencies should be in either the analysis folder or the utils function unless they are owned by someone else (e.g. a FEX file, or the resnet repo etc.). For dependencies that are not able to be included, please directly list them at the top of the livescript.~~
-
-~~CRP: 
-Fill out the complexity code folder, and the ensembles folder~~
-
-~~JKJ:
-Fill out the Image Statistic Analysis folder and the COCO-stuff part of the image content analysis folder~~
-
-~~WB:
-Fill out the Google cloud vision part of the image content analysis folder (+ something about troubleshooting Anaconda and Matlab?)~~
-
-~~After the work date:
-James will do the merges, any cleaning that is needed and make sure everything imports like it should. He will put the dependents in a requirements.txt file and/or a script that can be run, or quality advice given to setting up MATLAB to work with python.~~
-
-~~useful links~~
-
-~~https://blogs.mathworks.com/pick/2021/01/08/convert-your-live-scripts-to-markdown-file/~~
-
-~~https://www.markdownguide.org/cheat-sheet/~~
