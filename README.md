@@ -1,5 +1,5 @@
 # As simple as possible
-This is a repo expositing methods published in: _As simple as possible, but not simpler: features of the neural code for object recognition_ authored by  Rose O., Johnson J.K., Wang B. and Ponce C.R.* and published in _To Be Determined_  Month 2021
+This is a repo expositing methods published in: _Visual prototypes in the ventral stream are attuned to complexity and gaze behaviour_ authored by  Rose O., Johnson J.K., Wang B. and Ponce C.R.* and published in _Nature Communications_  (date TBA, end of 2021)
 
 We demonstrate the methods here in a manner that researchers familiar with MATLAB and Python can easily read, understand, and adapt to their purposes. Please cite as:
 xxx
@@ -19,6 +19,8 @@ This repo is organized into four folders corresponding the class of analysis plu
 - [Image Content Analysis](https://github.com/PonceLab/as-simple-as-possible/tree/main/Image_Content_Analysis/README.md): How to get fuzzy-labels for images with a resnet trained for the COCO-STUFF data set and then gathering statistics on word frequency in labels, including Google Cloud Vision labels
 	- [Cloud Vision Labeling](https://github.com/PonceLab/as-simple-as-possible/tree/main/Image_Content_Analysis/labeling_with_Google_Cloud_Vision.md): How to get labels from the Google Cloud Vision API. 
 
+The data are shared via public OSF repo. Image files are witheld but will be made available to researchers following the procedures outlined in the journal article. The link to the repository is here: [https://osf.io/z6gv2/]("https://osf.io/z6gv2/")
+
 ## How to use this repo
 
 The links in the table of contents take you to markdown files for display on github. We also provide actual MATLAB livescripts in the same folders. Simply clone this repository to your computer and browse the directories. Whenever possible we include dependencies here in this repository. When we do not we offer instructions on installing them yourself in the livescripts where they are needed. If a function is not recognized then it is probably in a [standard MATLAB toolbox](https://www.mathworks.com/help/matlab/index.html) (e.g. the [computer vision toolbox](https://www.mathworks.com/products/computer-vision.html)). We may not have noticed since we install all toolboxes by default on our laboratory machines. 
@@ -29,4 +31,4 @@ Clone the repo, get the livescripts running, and study the examples. Then adapt 
 
 A neuron-guided image synthesis algorithm called [Xdream](https://github.com/willwx/XDream) was developed in collaboration with Carlos Ponce. [Binxu Wang](https://github.com/Animadversio) replaced the optimizer with [CMAES](https://github.com/Animadversio/CMAES_optimizer_matlab) and adapted the [image generating up-convolution CNN](https://github.com/Evolving-AI-Lab/synthesizing) for MATLAB (to be released in an upcoming publication). 
 
-Should you like to share your MATLAB livescripts on Github you may be interested in this function which automatically converts livescripts into markdown so they can be displayed like jupyter notebooks: [latex2markdown](https://blogs.mathworks.com/pick/2021/01/08/convert-your-live-scripts-to-markdown-file/)
+Should you also like to share your MATLAB livescripts on Github you may be interested in this function which automatically converts livescripts into markdown so they can be displayed like jupyter notebooks: [latex2markdown](https://blogs.mathworks.com/pick/2021/01/08/convert-your-live-scripts-to-markdown-file/)
