@@ -19,7 +19,7 @@ This repo is organized into four folders corresponding the class of analysis plu
 - [Image Content Analysis](https://github.com/PonceLab/as-simple-as-possible/tree/main/Image_Content_Analysis/README.md): How to get fuzzy-labels for images with a resnet trained for the COCO-STUFF data set and then gathering statistics on word frequency in labels, including Google Cloud Vision labels
 	- [Cloud Vision Labeling](https://github.com/PonceLab/as-simple-as-possible/tree/main/Image_Content_Analysis/labeling_with_Google_Cloud_Vision.md): How to get labels from the Google Cloud Vision API. 
 
-The data are shared via public OSF repo. Image files are witheld but will be made available to researchers following the procedures outlined in the journal article. The link to the repository is here: [https://osf.io/z6gv2/]("https://osf.io/z6gv2/")
+The data are shared via public OSF repo. Image files are witheld but will be made available to researchers following the procedures outlined in the journal article. The link to the repository is here: [osf.io/z6gv2/](https://osf.io/z6gv2/)
 
 ## How to use this repo
 
