@@ -36,7 +36,7 @@ Please cite the following publication when using or adapting this software or su
 
 \begin{par}
 \begin{flushleft}
-Rose O., Johnson J.K., Wang B. and Ponce C.R.; As simple as possible, but not simpler: features of the neural code for object recognition; JOURNAL TBA
+Rose O., Johnson J.K., Wang B. and Ponce C.R.; Visual prototypes in the ventral stream are attuned to complexity and gaze behaviour; Nat. Commun; 2021
 \end{flushleft}
 \end{par}
 
@@ -652,7 +652,7 @@ These are the functions that do all the hardwork. Inspect them to gain a deeper 
 \begin{matlabcode}
 function [maps,resNetParams]=getLabelMaps(imagePath,resNetParams)
 % Please cite the following publication when using or adapting this software or substantial portion thereof for work resulting a publication:
-% Rose O., Johnson J.K., Wang B. and Ponce C.R.; As simple as possible, but not simpler: features of the neural code for object recognition; JOURNAL TBA
+% Rose O., Johnson J.K., Wang B. and Ponce C.R.; Visual prototypes in the ventral stream are attuned to complexity and gaze behaviour; Nat. Commun; 2021
 
 if nargin<2 || ~isstruct(resNetParams)
 configPath=".\configs\cocostuff164k.yaml";
@@ -686,7 +686,7 @@ end
     
 function [cloud]=convertMaps2Wordcloud(maps,resNetParams)
 % Please cite the following publication when using or adapting this software or substantial portion thereof for work resulting a publication:
-% Rose O., Johnson J.K., Wang B. and Ponce C.R.; As simple as possible, but not simpler: features of the neural code for object recognition; JOURNAL TBA
+% Rose O., Johnson J.K., Wang B. and Ponce C.R.; Visual prototypes in the ventral stream are attuned to complexity and gaze behaviour; Nat. Commun; 2021
 
     % get a list of all the labels represeneted
     unqLabels=unique(maps.labelMapList(:));
@@ -718,7 +718,7 @@ end
 
 function [adjMat]=getLabelRelationships(cloud,maps)
     % Please cite the following publication when using or adapting this software or substantial portion thereof for work resulting a publication:
-% Rose O., Johnson J.K., Wang B. and Ponce C.R.; As simple as possible, but not simpler: features of the neural code for object recognition; JOURNAL TBA
+% Rose O., Johnson J.K., Wang B. and Ponce C.R.; Visual prototypes in the ventral stream are attuned to complexity and gaze behaviour; Nat. Commun; 2021
     
     % make a blank adjacency matrix
     adjMat.labelNetworkOverlap=zeros(cloud.nLabels);
@@ -774,7 +774,7 @@ end
 
 function visualizeSingleSemanticLabelCloud(imagePath,labelLayer,sortedClassNames,labelLocMap,labelNetworkAdj)
 % Please cite the following publication when using or adapting this software or substantial portion thereof for work resulting a publication:
-% Rose O., Johnson J.K., Wang B. and Ponce C.R.; As simple as possible, but not simpler: features of the neural code for object recognition; JOURNAL TBA
+% Rose O., Johnson J.K., Wang B. and Ponce C.R.; Visual prototypes in the ventral stream are attuned to complexity and gaze behaviour; Nat. Commun; 2021
 
 nLabels=length(labelLayer);
 labelLocs=getLabelLocsFromMap(nLabels,labelLocMap);
@@ -851,7 +851,7 @@ end
 
 function labelLocs2=getLabelLocsFromMap(nLabels,labelLocMap)
 % Please cite the following publication when using or adapting this software or substantial portion thereof for work resulting a publication:
-% Rose O., Johnson J.K., Wang B. and Ponce C.R.; As simple as possible, but not simpler: features of the neural code for object recognition; JOURNAL TBA
+% Rose O., Johnson J.K., Wang B. and Ponce C.R.; Visual prototypes in the ventral stream are attuned to complexity and gaze behaviour; Nat. Commun; 2021
 
 sumLabelCodes=ones(1,nLabels);
 for labelNdx=1:nLabels
