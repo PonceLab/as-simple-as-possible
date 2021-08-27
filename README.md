@@ -29,6 +29,6 @@ Clone the repo, get the livescripts running, and study the examples. Then adapt 
 
 ## Related repositories
 
-A neuron-guided image synthesis algorithm called [Xdream](https://github.com/willwx/XDream) was developed in collaboration with Carlos Ponce. [Binxu Wang](https://github.com/Animadversio) replaced the optimizer with [CMAES](https://github.com/Animadversio/CMAES_optimizer_matlab) and adapted the [image generating up-convolution CNN](https://github.com/Evolving-AI-Lab/synthesizing) for MATLAB (to be released in an upcoming publication). 
+The published neuron-guided image synthesis algorithm called [Xdream](https://github.com/willwx/XDream) was developed by Ponce, Xiao, Schade, Hartmann in the labs of Margaret Livingstone and Gabriel Kreiman (2019). [Binxu Wang](https://github.com/Animadversio) replaced the optimizer with [CMAES](https://github.com/Animadversio/CMAES_optimizer_matlab) and adapted the [image generating up-convolution CNN](https://github.com/Evolving-AI-Lab/synthesizing) for MATLAB (to be released in an upcoming publication). 
 
 Should you also like to share your MATLAB livescripts on Github you may be interested in this function which automatically converts livescripts into markdown so they can be displayed like jupyter notebooks: [latex2markdown](https://blogs.mathworks.com/pick/2021/01/08/convert-your-live-scripts-to-markdown-file/)
