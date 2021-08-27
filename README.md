@@ -1,5 +1,5 @@
 # As simple as possible
-This is a repo expositing methods published in: _Visual prototypes in the ventral stream are attuned to complexity and gaze behaviour_ authored by  Rose O., Johnson J.K., Wang B. and Ponce C.R.* and published in _Nature Communications_  (date TBA, end of 2021)
+This is a repo expositing methods published in: _Visual prototypes in the ventral stream are attuned to complexity and gaze behaviour_ authored by  Rose O., Johnson J.K., Wang B. and Ponce C.R.* and published in (accepted in principle pending editorial revisions; date TBA, end of 2021)
 
 We demonstrate the methods here in a manner that researchers familiar with MATLAB and Python can easily read, understand, and adapt to their purposes. Please cite as:
 xxx
